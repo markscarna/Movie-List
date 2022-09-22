@@ -15,12 +15,12 @@ function OffcanvasNavbar() {
 
   function Search() {
     const filteredSearch = movies.filter(
-      (title) => title.title === searchMovie
+      (title) => title.title.toLowerCase() === searchMovie
     );
-    // console.log(filteredSearch.map(movie)=>movie.title);
-    setMovies(filteredSearch);
-    console.log(movies);
-    navigate("/search");
+    if (filteredSearch.length > 0) {
+      setMovies(filteredSearch);
+      navigate("/search");
+    } else alert("not found!");
   }
 
   return (
